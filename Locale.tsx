@@ -10,35 +10,37 @@ export default function Locale({ locale, currency }: LocaleProps) {
   const numArr = [-5, -4.76, 0, 17, 18.05, 122, 1449, 33002];
   return (
     <div>
-      <div>
-        Date
-        <ul>
-          {dateArr.map((val) => {
-            return (
-              <li>
-                {val} :{' '}
-                {new Intl.DateTimeFormat(locale, { dateStyle: val }).format(
-                  new Date()
-                )}
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-      <div>
-        Time
-        <ul>
-          {dateArr.map((val) => {
-            return (
-              <li>
-                {val} :{' '}
-                {new Intl.DateTimeFormat(locale, { timeStyle: val }).format(
-                  new Date()
-                )}
-              </li>
-            );
-          })}
-        </ul>
+      <div style={{ display: 'flex' }}>
+        <div>
+          Date
+          <ul>
+            {dateArr.map((val) => {
+              return (
+                <li>
+                  {val} :{' '}
+                  {new Intl.DateTimeFormat(locale, { dateStyle: val }).format(
+                    new Date()
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+        <div>
+          Time
+          <ul>
+            {dateArr.map((val) => {
+              return (
+                <li>
+                  {val} :{' '}
+                  {new Intl.DateTimeFormat(locale, { timeStyle: val }).format(
+                    new Date()
+                  )}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
       <div>
         Number
@@ -52,62 +54,64 @@ export default function Locale({ locale, currency }: LocaleProps) {
           })}
         </ul>
       </div>
-      <div>
-        Currency Code
-        <ul>
-          {numArr.map((val) => {
-            return (
-              <React.Fragment key={val}>
-                <li>
-                  {' '}
-                  {new Intl.NumberFormat(locale, {
-                    style: 'currency',
-                    currency,
-                    currencyDisplay: 'code',
-                  }).format(val)}
-                </li>
-              </React.Fragment>
-            );
-          })}
-        </ul>
-      </div>
-      <div>
-        Currency Symbol
-        <ul>
-          {numArr.map((val) => {
-            return (
-              <React.Fragment key={val}>
-                <li>
-                  {' '}
-                  {new Intl.NumberFormat(locale, {
-                    style: 'currency',
-                    currency,
-                    currencyDisplay: 'symbol',
-                  }).format(val)}
-                </li>
-              </React.Fragment>
-            );
-          })}
-        </ul>
-      </div>
-      <div>
-        Currency Name
-        <ul>
-          {numArr.map((val) => {
-            return (
-              <React.Fragment key={val}>
-                <li>
-                  {' '}
-                  {new Intl.NumberFormat(locale, {
-                    style: 'currency',
-                    currency,
-                    currencyDisplay: 'name',
-                  }).format(val)}
-                </li>
-              </React.Fragment>
-            );
-          })}
-        </ul>
+      <div style={{ display: 'flex' }}>
+        <div>
+          Currency Code
+          <ul>
+            {numArr.map((val) => {
+              return (
+                <React.Fragment key={val}>
+                  <li>
+                    {' '}
+                    {new Intl.NumberFormat(locale, {
+                      style: 'currency',
+                      currency,
+                      currencyDisplay: 'code',
+                    }).format(val)}
+                  </li>
+                </React.Fragment>
+              );
+            })}
+          </ul>
+        </div>
+        <div>
+          Currency Symbol
+          <ul>
+            {numArr.map((val) => {
+              return (
+                <React.Fragment key={val}>
+                  <li>
+                    {' '}
+                    {new Intl.NumberFormat(locale, {
+                      style: 'currency',
+                      currency,
+                      currencyDisplay: 'symbol',
+                    }).format(val)}
+                  </li>
+                </React.Fragment>
+              );
+            })}
+          </ul>
+        </div>
+        <div>
+          Currency Name
+          <ul>
+            {numArr.map((val) => {
+              return (
+                <React.Fragment key={val}>
+                  <li>
+                    {' '}
+                    {new Intl.NumberFormat(locale, {
+                      style: 'currency',
+                      currency,
+                      currencyDisplay: 'name',
+                    }).format(val)}
+                  </li>
+                </React.Fragment>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
