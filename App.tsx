@@ -23,7 +23,7 @@ export default function App() {
     'EUR',
     'PKR',
     'AUD',
-    'IND',
+    'INR',
     'VND',
   ];
   const [locale, setLocale] = React.useState(locales[0]);
