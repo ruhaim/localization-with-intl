@@ -7,7 +7,7 @@ interface LocaleProps {
 }
 export default function Locale({ locale, currency }: LocaleProps) {
   const dateArr = ['full', 'long', 'medium', 'short'];
-  const numArr = [-5, -4.76, 0, 17, 18.05, 122, 1449, 33002];
+  const numArr = [-5, -4.76, 0, 4.06, 4.664, 4.6, 17, 18.05, 122, 1449, 33002];
   return (
     <div>
       <div style={{ display: 'flex' }}>
@@ -42,18 +42,86 @@ export default function Locale({ locale, currency }: LocaleProps) {
           </ul>
         </div>
       </div>
-      <div>
-        Number
-        <ul>
-          {numArr.map((val) => {
-            return (
-              <React.Fragment key={val}>
-                <li>{new Intl.NumberFormat(locale, {}).format(val)}</li>
-              </React.Fragment>
-            );
-          })}
-        </ul>
+      <div style={{ display: 'flex' }}>
+        <div>
+          Number (Long)
+          <ul>
+            {numArr.map((val) => {
+              return (
+                <React.Fragment key={val}>
+                  <li>
+                    {new Intl.NumberFormat(locale, {
+                      maximumFractionDigits: 2,
+                      minimumFractionDigits: 2,
+                    }).format(val)}
+                  </li>
+                </React.Fragment>
+              );
+            })}
+          </ul>
+        </div>
+        <div>
+          Number (Short)
+          <ul>
+            {numArr.map((val) => {
+              return (
+                <React.Fragment key={val}>
+                  <li>
+                    {new Intl.NumberFormat(locale, {
+                      maximumFractionDigits: 2,
+                      minimumFractionDigits: 0,
+                    }).format(val)}
+                  </li>
+                </React.Fragment>
+              );
+            })}
+          </ul>
+        </div>
       </div>
+
+      <div style={{ display: 'flex' }}>
+        <div>
+          Currency (Long)
+          <ul>
+            {numArr.map((val) => {
+              return (
+                <React.Fragment key={val}>
+                  <li>
+                    {new Intl.NumberFormat(locale, {
+                      style: 'currency',
+                      currency,
+                      currencyDisplay: 'code',
+                      maximumFractionDigits: 2,
+                      minimumFractionDigits: 2,
+                    }).format(val)}
+                  </li>
+                </React.Fragment>
+              );
+            })}
+          </ul>
+        </div>
+        <div>
+          Currency (Short)
+          <ul>
+            {numArr.map((val) => {
+              return (
+                <React.Fragment key={val}>
+                  <li>
+                    {new Intl.NumberFormat(locale, {
+                      style: 'currency',
+                      currency,
+                      currencyDisplay: 'symbol',
+                      maximumFractionDigits: 2,
+                      minimumFractionDigits: 0,
+                    }).format(val)}
+                  </li>
+                </React.Fragment>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+
       <div style={{ display: 'flex' }}>
         <div>
           Currency Code

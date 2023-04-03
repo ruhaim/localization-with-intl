@@ -5,10 +5,10 @@ import './style.css';
 
 export default function App() {
   const locales = [
+    'en-SG',
     'en-GB',
     'en-US',
     'fr-GB',
-    'en-SG',
     'ur',
     'ja',
     'en-AU',
