@@ -8,6 +8,7 @@ export default function App() {
     'en-GB',
     'en-US',
     'fr-GB',
+    'en-SG',
     'ur',
     'ja',
     'en-AU',

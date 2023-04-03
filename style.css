@@ -1,3 +1,13 @@
 h1, p {
   font-family: Lato;
 }
+
+span{
+  width:180px;
+  display:inline-block;
+}
+
+span.dd{
+  width:70px;
+  display:inline-block;
+}
