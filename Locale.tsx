@@ -7,7 +7,7 @@ interface LocaleProps {
 }
 export default function Locale({ locale, currency }: LocaleProps) {
   const dateArr = ['full', 'long', 'medium', 'short'];
-  const numArr = [-5, -4.76, 0, 4.06, 4.664, 4.6, 17, 18.05, 122, 1449, 33002];
+  const numArr = [0, 4, 4.06, 4.664, 4.6, 18.05, 122, 1449, 33002, -5, -4.76];
   return (
     <div>
       <div style={{ display: 'flex' }}>
